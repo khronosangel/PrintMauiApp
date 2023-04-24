@@ -1,24 +1,32 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Append.Blazor.Printing;
+using Microsoft.Extensions.Logging;
+using PrintingMauiApp2.Data;
 
-namespace PrintMauiApp;
-
-public static class MauiProgram
+namespace PrintingMauiApp2
 {
-	public static MauiApp CreateMauiApp()
-	{
-		var builder = MauiApp.CreateBuilder();
-		builder
-			.UseMauiApp<App>()
-			.ConfigureFonts(fonts =>
-			{
-				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-			});
+    public static class MauiProgram
+    {
+        public static MauiApp CreateMauiApp()
+        {
+            var builder = MauiApp.CreateBuilder();
+            builder
+                .UseMauiApp<App>()
+                .ConfigureFonts(fonts =>
+                {
+                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                });
+
+            builder.Services.AddMauiBlazorWebView();
+            builder.Services.AddScoped<IPrintingService, PrintingService>();
 
 #if DEBUG
+            builder.Services.AddBlazorWebViewDeveloperTools();
 		builder.Logging.AddDebug();
 #endif
 
-		return builder.Build();
-	}
+            builder.Services.AddSingleton<WeatherForecastService>();
+
+            return builder.Build();
+        }
+    }
 }

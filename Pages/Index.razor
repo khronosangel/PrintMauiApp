@@ -1,0 +1,34 @@
+﻿@using Append.Blazor.Printing
+@inject IPrintingService PrintingService
+@page "/"
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+
+<button class="btn btn-primary" type="button" @onclick="@PrintPDF">
+    Print PDF
+</button>
+
+
+<button class="btn btn-primary" type="button" @onclick="@(() => PrintingService.Print(new PrintOptions() {Printable= "printsamples/10367338.jpg", Type = PrintType.Image, ModalMessage = "My cool image header"}))">
+    Print Image
+
+</button>
+
+<button class="btn btn-primary" type="button" onclick="printJS({
+  printable: ['printsamples/10367338.jpg', 'printsamples/58104.jpg'],
+  type: 'image',
+  header: 'Multiple Images',
+  imageStyle: 'width:50%;margin-bottom:20px;'
+ })">
+    Print Multiple Images and Header
+</button>
+
+
+<button class="btn btn-primary" type="button" onclick="window.print()">
+    Print JSON Data
+</button>

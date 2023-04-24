@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>PrintingMauiApp2</title>
+    <base href="/" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link href="css/app.css" rel="stylesheet" />
+    <link href="PrintingMauiApp2.styles.css" rel="stylesheet" />
+    <link href="libs/printjs/print.min.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div class="status-bar-safe-area"></div>
+
+    <div id="app">Loading...</div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+
+    <script src="_framework/blazor.webview.js" autostart="false"></script>
+    <script src="libs/printjs/print.min.js"></script>
+    <script>
+        var someJSONdata = [
+            {
+                name: 'John Doe',
+                email: 'john@doe.com',
+                phone: '111-111-1111'
+            },
+            {
+                name: 'Barry Allen',
+                email: 'barry@flash.com',
+                phone: '222-222-2222'
+            },
+            {
+                name: 'Cool Dude',
+                email: 'cool@dude.com',
+                phone: '333-333-3333'
+            }
+        ]
+
+    </script>
+</body>
+
+</html>

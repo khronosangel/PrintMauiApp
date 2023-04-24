@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>PrintingMauiApp2</title>
+    <base href="/" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link href="css/app.css" rel="stylesheet" />
+    <link href="PrintingMauiApp2.styles.css" rel="stylesheet" />
+    <link href="libs/printjs/print.min.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div id="app">
+        <div class="page">
+            <div class="sidebar">
+                <div class="top-row ps-3 navbar navbar-dark">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="">PrintingMauiApp2</a>
+                        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+                    <nav class="flex-column">
+                        <div class="nav-item px-3">
+                            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                                <span class="oi oi-home" aria-hidden="true"></span> Home
+                            </NavLink>
+                        </div>
+                        <div class="nav-item px-3">
+                            <NavLink class="nav-link" href="counter">
+                                <span class="oi oi-plus" aria-hidden="true"></span> Counter
+                            </NavLink>
+                        </div>
+                        <div class="nav-item px-3">
+                            <NavLink class="nav-link" href="fetchdata">
+                                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
+                            </NavLink>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+
+            <main>
+                <div class="top-row px-4">
+                    <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+                </div>
+
+                <article class="content px-4">
+                    <button class="btn btn-primary" type="button" onclick="printJS('printsamples/Diagram_0.pdf')">
+                        Print PDF
+                    </button>
+
+                    <button class="btn btn-primary" type="button" onclick="printJS({printable: base64, type: 'pdf', base64: true})">
+                        Print PDF with Message
+                    </button>
+
+                    <button class="btn btn-primary" type="button" onclick="printJS({printable: 'printsamples/10367338.jpg', type: 'image', header: 'My cool image header'})">
+                        Print Image
+
+                    </button>
+                    <button class="btn btn-primary" type="button" onclick="printJS({
+  printable: ['printsamples/10367338.jpg', 'printsamples/58104.jpg'],
+  type: 'image',
+  header: 'Multiple Images',
+  imageStyle: 'width:50%;margin-bottom:20px;'
+ })">
+                        Print Multiple Images and Header
+                    </button>
+
+
+                    <button class="btn btn-primary" type="button" onclick="printJS({printable: someJSONdata, properties: ['name', 'email', 'phone'], type: 'json'})">
+                        Print JSON Data
+                    </button>
+                </article>
+            </main>
+        </div>       
+
+    </div>
+
+    <script src="libs/printjs/print.min.js"></script>
+    <script>
+        var someJSONdata = [
+            {
+                name: 'John Doe',
+                email: 'john@doe.com',
+                phone: '111-111-1111'
+            },
+            {
+                name: 'Barry Allen',
+                email: 'barry@flash.com',
+                phone: '222-222-2222'
+            },
+            {
+                name: 'Cool Dude',
+                email: 'cool@dude.com',
+                phone: '333-333-3333'
+            }
+        ]
+
+    </script>
+</body>
+
+</html>
