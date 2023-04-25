@@ -1,4 +1,7 @@
-﻿using ObjCRuntime;
+﻿using Append.Blazor.Printing;
+using ObjCRuntime;
+using PrintingMauiApp2.Interfaces;
+using PrintingMauiApp2.Services;
 using UIKit;
 
 namespace PrintingMauiApp2
@@ -11,6 +14,7 @@ namespace PrintingMauiApp2
             // if you want to use a different Application Delegate class from "AppDelegate"
             // you can specify it here.
             UIApplication.Main(args, null, typeof(AppDelegate));
+            //DependencyService.Register<IPrintService, PrintService>();
         }
     }
 }

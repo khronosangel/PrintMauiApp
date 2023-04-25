@@ -1,6 +1,10 @@
-﻿using Append.Blazor.Printing;
+﻿//using Append.Blazor.Printing;
 using Microsoft.Extensions.Logging;
 using PrintingMauiApp2.Data;
+using PrintingMauiApp2.Interfaces;
+using PrintingMauiApp2.Services;
+using PrintingMauiApp2.Platforms;
+using Append.Blazor.Printing;
 
 namespace PrintingMauiApp2
 {
@@ -18,6 +22,8 @@ namespace PrintingMauiApp2
 
             builder.Services.AddMauiBlazorWebView();
             builder.Services.AddScoped<IPrintingService, PrintingService>();
+            builder.Services.AddTransient<IPrintService,PrintService>();
+            
 
 #if DEBUG
             builder.Services.AddBlazorWebViewDeveloperTools();

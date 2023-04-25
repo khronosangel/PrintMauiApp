@@ -9,5 +9,7 @@ namespace PrintingMauiApp2.Interfaces
     public interface IPrintService
     {
         void Print(Stream inputStream, string fileName);
+        void PrintHTML(string HTML);
+        void PrintURL(string TargetURL);
     }
 }

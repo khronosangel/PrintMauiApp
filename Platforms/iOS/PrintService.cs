@@ -7,7 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using UIKit;
 
-namespace PrintingMauiApp2.Platforms.iOS
+//[assembly: Dependency(typeof(PrintService))]
+namespace PrintingMauiApp2.Platforms
+//namespace PrintingMauiApp2.Services
 {
     public class PrintService : IPrintService
     {
@@ -47,6 +49,16 @@ namespace PrintingMauiApp2.Platforms.iOS
                     Console.WriteLine("error");
                 }
             });
+        }
+
+        public void PrintHTML(string HTML)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void PrintURL(string TargetURL)
+        {
+            throw new NotImplementedException();
         }
     }
 }
